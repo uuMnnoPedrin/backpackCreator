@@ -4,7 +4,7 @@ from time import sleep
 contas = {}
 itens = {}
 os.system("clear")
-with open ("accounts.txt", "w", encoding="utf8") as file:
+with open ("accounts.txt", "a", encoding="utf8") as file:
     file.close()
 if not os.path.exists("./users/"):
     os.mkdir("users")
@@ -185,9 +185,11 @@ while True:
                         for k,v in backpack.items():
                             arquivo.write(f"{k}//{backpack[k][0]}//{backpack[k][1]}//{backpack[k][2]}//{backpack[k][3]}\n")
                             print("\nItem editado!")
-                            continue
+                            break
+                            
             print("\nO item não existe!")
-            continue
+            break   
+            
     elif opc == "v":
         print('=-'*30)
         with open (f"users/{user}/{char}.txt","r",encoding="utf8") as file:
