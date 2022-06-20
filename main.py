@@ -174,8 +174,20 @@ while True:
             for i,_ in enumerate(txt):
                 itm = txt[i].split("//")
                 backpack[itm[0]] = itm[1:]
-
-
+                if editN in backpack and backpack[editN][0] == editC:
+                    print(f"Tipo atual do item:{backpack[editN][0]}\nClasse atual do item:{backpack[editN][1]}\nValor atual do item:{backpack[editN][2]}\nQuantidade atual do item:{backpack[editN][3]}")
+                    novo = []
+                    novo.append(input("Digite a nova classe do item -> "))
+                    novo.append(input("Digite o novo valor do item -> "))
+                    novo.append(input("Digite a nova quantidade do item -> "))
+                    backpack[editN] = novo[0:]
+                    with open(f"users/{user}/{char}.txt","w",encoding="utf8") as arquivo:
+                        for k,v in backpack.items():
+                            arquivo.write(f"{k}//{backpack[k][0]}//{backpack[k][1]}//{backpack[k][2]}//{backpack[k][3]}\n")
+                            print("\nItem editado!")
+                            continue
+            print("\nO item não existe!")
+            continue
     elif opc == "v":
         print('=-'*30)
         with open (f"users/{user}/{char}.txt","r",encoding="utf8") as file:
