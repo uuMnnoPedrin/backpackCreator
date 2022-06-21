@@ -169,12 +169,12 @@ while True:
                 tp = "Outro"
             else:
                 tp = "Outro"
-            backpack = {}
+            backpack = []
             txt = [item[0:-1] for item in file.readlines()]
             for i,_ in enumerate(txt):
                 itm = txt[i].split("//")
-                backpack[itm[0]] = itm[1:]
-                if editN in backpack and backpack[editN][0] == editC:
+                
+                if editN == backpack and backpack[i][0] == editC:
                     print(f"Tipo atual do item:{backpack[editN][0]}\nClasse atual do item:{backpack[editN][1]}\nValor atual do item:{backpack[editN][2]}\nQuantidade atual do item:{backpack[editN][3]}")
                     novo = []
                     novo.append(input("Digite a nova classe do item -> "))
